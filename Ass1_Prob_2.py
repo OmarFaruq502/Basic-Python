@@ -5,16 +5,24 @@
 # Make sure to validate the input before doing any calculation.
 
 print("Enter a Binary Number: ")
-
 binary = input()
 
-# converts each string input in integers and then converts into a list
+#converts each string input in integers and then converts into a list
 arr = [int(x) for x in binary]
 
-arr.reverse()
+correct_input = True
 
-decimal = 0
 for i in range(len(arr)):
-    decimal = decimal + arr[i] * pow(2 , i)
+    if arr[i] < 0 or arr[i] > 1:
+        print("Invalid input")
+        correct_input = False  #checks for correct input
+        break
 
-print("Decimal number for Binary input is: " + str(decimal))
+if correct_input:
+    arr.reverse()
+
+    decimal = 0
+    for i in range(len(arr)):
+        decimal = decimal + arr[i] * pow(2 , i)
+
+    print("Decimal number for Binary input is: " + str(decimal))
